@@ -7912,16 +7912,17 @@
   animation: sqPulse 0.6s ease-in-out;\
 }\
 .sq-skip-btn {\
-  padding: 10px 18px;\
+  padding: 10px 20px;\
   border-radius: 999px;\
   border: none;\
   font-size: 14px;\
-  font-weight: 600;\
+  font-weight: 700;\
   cursor: pointer;\
-  background: #ffcc33;\
-  color: #222222;\
-  box-shadow: 0 4px 10px rgba(0,0,0,0.4);\
+  background: linear-gradient(135deg, #1e88e5, #42a5f5);\
+  color: #ff4444;\
+  box-shadow: 0 4px 12px rgba(0,0,0,0.45);\
   white-space: nowrap;\
+  text-shadow: 0 0 4px rgba(0,0,0,0.45);\
 }\
 .sq-skip-btn:active {\
   transform: scale(0.97);\
@@ -7948,16 +7949,16 @@
   </div>\
 </div>',
         [2, new Promise((function(resolve) {
-          var skipContainer = e.overlay.querySelector(".sq-skip-container");
-          var skipBtn = e.overlay.querySelector(".sq-skip-btn");
+          var skipContainer = e.overlay && e.overlay.querySelector(".sq-skip-container");
+          var skipBtn = e.overlay && e.overlay.querySelector(".sq-skip-btn");
           var pulseInterval = null;
 
-          // Show skip button after 2 seconds with fade in
+          // show skip button after 2 seconds with fade in
           window.setTimeout(function() {
             if (!skipContainer) return;
             skipContainer.classList.add("sq-visible");
 
-            // Pulse every 10 seconds (non stacking, capped by keyframes)
+            // pulse every 10 seconds (uses animation, does not permanently grow)
             pulseInterval = window.setInterval(function() {
               if (!skipContainer) return;
               skipContainer.classList.add("sq-pulse");
@@ -7967,7 +7968,7 @@
             }, 10000);
           }, 2000);
 
-          // Skip button closes the ad and resolves the promise
+          // skip button closes the ad and resolves the promise
           skipBtn && skipBtn.addEventListener("click", function() {
             if (pulseInterval) {
               window.clearInterval(pulseInterval);
@@ -7976,7 +7977,7 @@
             e.hideOverlay();
             resolve();
           });
-        }))]]
+        }))]  // keep this single closing ]
     }))
   }))
 },
