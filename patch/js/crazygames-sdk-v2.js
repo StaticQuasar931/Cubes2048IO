@@ -7892,7 +7892,7 @@
                       this.requestInProgress = !0,
                       this.showOverlay(),
                       // this.overlay.innerHTML = "<h1>A " + t + " ad would appear here</h1>",
-                      this.overlay.innerHTML = "<h1>www.ubg235.com</h1>",
+                      this.overlay.innerHTML = "<h1>https://sites.google.com/view/staticquasar931/gm3z</h1>",
                       [2, new Promise((function(t) {
                         window.setTimeout((function() {
                           e.requestInProgress = !1,
